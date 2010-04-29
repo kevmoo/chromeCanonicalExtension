@@ -8,18 +8,17 @@
       "js": [ "sniff_common.js", "feed_finder.js" ],
       "matches": [ "http://*/*", "https://*/*" ]
    } ],
-   "default_locale": "en",
-   "description": "__MSG_rss_subscription_description__",
+   "description": "description",
    "icons": {
       "128": "feed-icon-128x128.png"
    },
-   "name": "__MSG_rss_subscription_name__",
+   "name": "title",
    "options_page": "options.html",
    "page_action": {
       "default_icon": "feed-icon-16x16.png",
-      "default_title": "__MSG_rss_subscription_default_title__",
+      "default_title": "be cool",
       "popup": "popup.html"
    },
    "permissions": [ "tabs", "http://*/*", "https://*/*" ],
-   "version": "2.1.1"
+   "version": "0.1.0.0"
 }

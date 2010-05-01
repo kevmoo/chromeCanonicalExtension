@@ -1,23 +1,16 @@
 {
    "background_page": "background.html",
    "content_scripts": [ {
-      "js": [ "sniff_common.js", "doc_start.js" ],
-      "matches": [ "http://*/*", "https://*/*" ],
-      "run_at": "document_start"
-   }, {
-      "js": [ "sniff_common.js", "feed_finder.js" ],
+      "js": [ "jquery-1.4.2.js", "sniff_common.js" ],
       "matches": [ "http://*/*", "https://*/*" ]
    } ],
    "description": "description",
    "icons": {
       "128": "feed-icon-128x128.png"
    },
-   "name": "title",
-   "options_page": "options.html",
+   "name": "Canonical",
    "page_action": {
-      "default_icon": "feed-icon-16x16.png",
-      "default_title": "be cool",
-      "popup": "popup.html"
+      "default_icon": "feed-icon-16x16.png"
    },
    "permissions": [ "tabs", "http://*/*", "https://*/*" ],
    "version": "0.1.0.0"

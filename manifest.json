@@ -5,10 +5,10 @@
   "permissions": [ "tabs", "http://*/*" ],
   "background_page": "background.html",
   "icons": {
-    "128": "feed-icon-128x128.png"
+    "128": "logo128.png"
   },
   "page_action": {
-    "default_icon": "feed-icon-16x16.png"
+    "default_icon": "logo16.png"
   },
   "content_scripts": [ {
     "js": [ "jquery-1.4.2.js", "sniff_common.js" ],

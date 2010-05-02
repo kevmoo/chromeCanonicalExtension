@@ -1,17 +1,17 @@
 {
-   "background_page": "background.html",
-   "content_scripts": [ {
-      "js": [ "jquery-1.4.2.js", "sniff_common.js" ],
-      "matches": [ "http://*/*", "https://*/*" ]
-   } ],
-   "description": "description",
-   "icons": {
-      "128": "feed-icon-128x128.png"
-   },
-   "name": "Canonical",
-   "page_action": {
-      "default_icon": "feed-icon-16x16.png"
-   },
-   "permissions": [ "tabs", "http://*/*" ],
-   "version": "0.1"
+  "name": "Canonical",
+  "description": "If a page has a canonical rel link and it's not the current page, provide a quick way to navigate to the canonical url. Perfect for sharing.",
+  "version": "0.9",
+  "permissions": [ "tabs", "http://*/*" ],
+  "background_page": "background.html",
+  "icons": {
+    "128": "feed-icon-128x128.png"
+  },
+  "page_action": {
+    "default_icon": "feed-icon-16x16.png"
+  },
+  "content_scripts": [ {
+    "js": [ "jquery-1.4.2.js", "sniff_common.js" ],
+    "matches": [ "http://*/*", "https://*/*" ]
+  } ]
 }

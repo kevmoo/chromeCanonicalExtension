@@ -1,5 +1,3 @@
-// going off http://googlewebmastercentral.blogspot.com/2009/02/specify-your-canonical.html
-
 // TODO: do we need to support <base> in header? Hmm...
 
 var simpleAbsoluteUrlMatch = '^[a-zA-Z]+://.*';

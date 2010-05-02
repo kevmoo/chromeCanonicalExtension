@@ -12,6 +12,6 @@
   },
   "content_scripts": [ {
     "js": [ "jquery-1.4.2.js", "sniff_common.js" ],
-    "matches": [ "http://*/*", "https://*/*" ]
+    "matches": [ "http://*/*" ]
   } ]
 }

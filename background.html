@@ -1,8 +1,6 @@
 <html>
 <head>
 <script>
-  // A dictionary keyed off of tabId that keeps track of data per tab (for
-  // example what feedUrl was detected in the tab).
   var canonical_urls = {};
 
   chrome.extension.onRequest.addListener(function(canonicalUrl, sender) {
@@ -16,10 +14,12 @@
     chrome.pageAction.show(sender.tab.id);
   });
 
+  // tab is going away, remove the canonical data for it
   chrome.tabs.onRemoved.addListener(function(tabId) {
     delete canonical_urls[tabId];
   });
 
+  // address bar icon clicked, navigate the tap to the canonical url
   chrome.pageAction.onClicked.addListener( function(tab) {
     chrome.tabs.update(tab.id, {url: canonical_urls[tab.id]});
   });

@@ -1,26 +1,32 @@
-// Copyright (c) 2010 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
+// going off http://googlewebmastercentral.blogspot.com/2009/02/specify-your-canonical.html
 
-// The possible log levels.
-var logLevels = {
-    "none": 0,
-    "error": 1,
-    "info": 2
-};
+// TODO: do we need to support <base> in header? Hmm...
 
-// Defines the current log level. Values other than "none" are for debugging
-// only and should at no point be checked in.
-var currentLogLevel = logLevels.info;
+var simpleAbsoluteUrlMatch = '^[a-zA-Z]+://.*';
 
-var canonical = $('head link[rel=canonical]').attr('href');
-console.log('canonical link, if any: ', canonical);
-if(canonical) {
-  chrome.extension.sendRequest(
-    {
-      msg: "canonicalExists",
-      href: location.href,
-      canonical: canonical
+// generate an absolute url (protocol, host, path) from a canonicalValue that might be relative
+function getCanonicalUrl(canonicalValue){
+  if(canonicalValue){
+    if(canonicalValue.match(simpleAbsoluteUrlMatch)){
+      // canonicalValue is a full url
+      return canonicalValue;
     }
-  );
+    else if(canonicalValue.match('^/.*')){
+      // canonicalValue is an absolute url in the current host
+      return location.protocol + '//' + location.host + canonicalValue;
+    }
+    else{
+      console.error('The canonical URL is relative, which is weird.');
+    }
+  }
+  else{
+    return null;
+  }
+}
+
+var canonicalValue = $('head link[rel=canonical]').attr('href');
+var canonicalUrl = getCanonicalUrl(canonicalValue);
+
+if(canonicalUrl && location.href != canonicalUrl) {
+  chrome.extension.sendRequest(canonicalUrl);
 }

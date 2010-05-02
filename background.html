@@ -5,17 +5,15 @@
   // example what feedUrl was detected in the tab).
   var canonical_urls = {};
 
-  chrome.extension.onRequest.addListener(function(request, sender) {
-    if (request.msg == "canonicalExists") {
-      canonical_urls[sender.tab.id] = request.canonical;
-      chrome.pageAction.setTitle(
-        {
-          tabId: sender.tab.id,
-          title: "Canonical url: " + request.canonical
-        }
-      );
-      chrome.pageAction.show(sender.tab.id);
-    }
+  chrome.extension.onRequest.addListener(function(canonicalUrl, sender) {
+    canonical_urls[sender.tab.id] = canonicalUrl;
+    chrome.pageAction.setTitle(
+      {
+        tabId: sender.tab.id,
+        title: "Canonical url: " + canonicalUrl
+      }
+    );
+    chrome.pageAction.show(sender.tab.id);
   });
 
   chrome.tabs.onRemoved.addListener(function(tabId) {
@@ -23,7 +21,7 @@
   });
 
   chrome.pageAction.onClicked.addListener( function(tab) {
-    console.log('clicked!', 'we should go to', canonical_urls[tab.id]);
+    chrome.tabs.update(tab.id, {url: canonical_urls[tab.id]});
   });
 
 </script>

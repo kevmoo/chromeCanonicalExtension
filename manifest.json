@@ -12,6 +12,6 @@
    "page_action": {
       "default_icon": "feed-icon-16x16.png"
    },
-   "permissions": [ "tabs", "http://*/*", "https://*/*" ],
-   "version": "0.1.0.0"
+   "permissions": [ "tabs", "http://*/*" ],
+   "version": "0.1"
 }

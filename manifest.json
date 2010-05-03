@@ -1,6 +1,6 @@
 {
   "name": "Canonical",
-  "description": "If a page has a canonical rel link and it's not the current page, provide a quick way to navigate to the canonical url. Perfect for sharing.",
+  "description": "If a page has a canonical rel link, provide a quick way to navigate to it.",
   "version": "0.9",
   "permissions": [ "tabs", "http://*/*" ],
   "background_page": "background.html",

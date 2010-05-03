@@ -1,4 +1,4 @@
-// TODO: do we need to support <base> in header? Hmm...
+// TODO: Support for <base> tag. Not all that interesting, but should consider.
 
 var simpleAbsoluteUrlMatch = '^[a-zA-Z]+://.*';
 
@@ -14,7 +14,7 @@ function getCanonicalUrl(canonicalValue){
       return location.protocol + '//' + location.host + canonicalValue;
     }
     else{
-      console.error('The canonical URL is relative, which is weird.');
+      console.error('The canonical URL is relative and does not start with "/". Not supported.');
     }
   }
   else{

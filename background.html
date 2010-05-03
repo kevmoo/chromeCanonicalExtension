@@ -24,6 +24,13 @@
     chrome.tabs.update(tab.id, {url: canonical_urls[tab.id]});
   });
 
+  chrome.tabs.onUpdated.addListener( function(tabId, changeInfo, tab) {
+    // ensure that the url data lives for the life of the page, not the tab
+    if(changeInfo.status == "loading"){
+      delete canonical_urls[tabId];
+    }
+  });
+
 </script>
 </head>
 </html>

@@ -15,6 +15,7 @@ function getCanonicalUrl(canonicalValue){
     }
     else{
       console.error('The canonical URL is relative and does not start with "/". Not supported.');
+      return null;
     }
   }
   else{

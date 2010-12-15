@@ -17,13 +17,15 @@ This extension leverages that tag, when it exists.
 
 # Examples #
 
-http://www.youtube.com/watch?v=8xfeTQIOHGw&feature=player_embedded#!  
-becomes  
-http://www.youtube.com/watch?v=8xfeTQIOHGw
-
-http://www.nytimes.com/2010/04/28/sports/global/28climber.html?src=twt&twt=nytimes  
-becomes  
-http://www.nytimes.com/2010/04/28/sports/global/28climber.html
+<table><tr>
+<td>From</td><td>To</td>
+</tr><tr>
+<td>http://www.youtube.com/watch?v=8xfeTQIOHGw&feature=player_embedded</td>
+<td>http://www.youtube.com/watch?v=8xfeTQIOHGw</td>
+</tr><tr>
+<td>http://www.nytimes.com/2010/04/28/sports/global/28climber.html?src=twt&twt=nytimes</td>
+<td>http://www.nytimes.com/2010/04/28/sports/global/28climber.html</td>
+</tr></table>
 
 # Inspiration #
 

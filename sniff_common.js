@@ -2,6 +2,14 @@
 
 var simpleAbsoluteUrlMatch = '^[a-zA-Z]+://.*';
 
+function log(text) {
+  chrome.extension.sendRequest({'action' : 'log', 'text' : text});
+};
+
+function error(text) {
+  chrome.extension.sendRequest({'action' : 'error', 'text' : text});
+};
+
 // generate an absolute url (protocol, host, path) from a canonicalValue that might be relative
 function getCanonicalUrl(canonicalValue){
   if(canonicalValue){
@@ -14,7 +22,7 @@ function getCanonicalUrl(canonicalValue){
       return location.protocol + '//' + location.host + canonicalValue;
     }
     else{
-      console.error('The canonical URL is relative and does not start with "/". Not supported.');
+      error('The canonical URL is relative and does not start with "/". Not supported.');
       return null;
     }
   }
@@ -27,5 +35,5 @@ var canonicalValue = $('head link[rel=canonical]').attr('href');
 var canonicalUrl = getCanonicalUrl(canonicalValue);
 
 if(canonicalUrl && location.href != canonicalUrl) {
-  chrome.extension.sendRequest(canonicalUrl);
+  chrome.extension.sendRequest({'action': 'setCanonical', 'url': canonicalUrl});
 }

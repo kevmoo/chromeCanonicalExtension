@@ -31,9 +31,14 @@ function getCanonicalUrl(canonicalValue){
   }
 }
 
-var canonicalValue = $('head link[rel=canonical]').attr('href');
-var canonicalUrl = getCanonicalUrl(canonicalValue);
+var canonicalLinks = Sizzle('head link[rel=canonical]');
 
-if(canonicalUrl && location.href != canonicalUrl) {
-  chrome.extension.sendRequest({'action': 'setCanonical', 'url': canonicalUrl});
+if(canonicalLinks.length == 1){
+  var canonicalLink = canonicalLinks[0];
+
+  var canonicalUrl = getCanonicalUrl(canonicalLink.href);
+
+  if(canonicalUrl && location.href != canonicalUrl) {
+    chrome.extension.sendRequest({'action': 'setCanonical', 'url': canonicalUrl});
+  }
 }

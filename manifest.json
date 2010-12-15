@@ -11,7 +11,7 @@
     "default_icon": "logo16.png"
   },
   "content_scripts": [ {
-    "js": [ "jquery-1.4.2.js", "sniff_common.js" ],
+    "js": [ "sizzle.js", "sniff_common.js" ],
     "matches": [ "http://*/*" ],
     "run_at": "document_end"
   } ]

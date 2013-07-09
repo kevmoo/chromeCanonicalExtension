@@ -1,9 +1,13 @@
 {
+  "manifest_version" : 2,
   "name": "Canonical",
   "description": "If a page has a canonical rel link, provide a quick way to navigate to it.",
-  "version": "1.1",
+  "version": "1.2",
   "permissions": [ "tabs", "http://*/*" ],
-  "background_page": "background.html",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
   "icons": {
     "128": "logo128.png"
   },

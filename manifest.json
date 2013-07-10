@@ -1,11 +1,16 @@
 {
-  "manifest_version" : 2,
+  "manifest_version": 2,
   "name": "Canonical",
   "description": "If a page has a canonical rel link, provide a quick way to navigate to it.",
   "version": "1.2",
-  "permissions": [ "tabs", "http://*/*" ],
+  "permissions": [
+    "tabs",
+    "http://*/*"
+  ],
   "background": {
-    "scripts": ["background.js"],
+    "scripts": [
+      "background.js"
+    ],
     "persistent": true
   },
   "icons": {
@@ -14,9 +19,16 @@
   "page_action": {
     "default_icon": "logo16.png"
   },
-  "content_scripts": [ {
-    "js": [ "sizzle.js", "sniff_common.js" ],
-    "matches": [ "http://*/*" ],
-    "run_at": "document_end"
-  } ]
+  "content_scripts": [
+    {
+      "js": [
+        "sizzle.js",
+        "sniff_common.js"
+      ],
+      "matches": [
+        "http://*/*"
+      ],
+      "run_at": "document_end"
+    }
+  ]
 }

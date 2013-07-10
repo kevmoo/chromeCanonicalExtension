@@ -22,7 +22,6 @@
   "content_scripts": [
     {
       "js": [
-        "sizzle.js",
         "sniff_common.js"
       ],
       "matches": [

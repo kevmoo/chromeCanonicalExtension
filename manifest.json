@@ -9,14 +9,14 @@
     "persistent": true
   },
   "icons": {
-    "16": "logo16.png",
-    "48": "logo48.png",
-    "128": "logo128.png"
+    "16": "images/logo16.png",
+    "48": "images/logo48.png",
+    "128": "images/logo128.png"
   },
   "page_action": {
     "default_icon": {                    
-      "19": "logo19.png",         
-      "38": "logo38.png"          
+      "19": "images/logo19.png",         
+      "38": "images/logo38.png"          
     }  
   },
   "content_scripts": [

@@ -3,30 +3,26 @@
   "name": "Canonical",
   "description": "If a page has a canonical rel link, provide a quick way to navigate to it.",
   "version": "1.2",
-  "permissions": [
-    "tabs",
-    "http://*/*"
-  ],
+  "permissions": [ "<all_urls>", "tabs" ],
   "background": {
-    "scripts": [
-      "background.js"
-    ],
+    "scripts": [ "background.js" ],
     "persistent": true
   },
   "icons": {
+    "16": "logo16.png",
+    "48": "logo48.png",
     "128": "logo128.png"
   },
   "page_action": {
-    "default_icon": "logo16.png"
+    "default_icon": {                    
+      "19": "logo19.png",         
+      "38": "logo38.png"          
+    }  
   },
   "content_scripts": [
     {
-      "js": [
-        "sniff_common.js"
-      ],
-      "matches": [
-        "http://*/*"
-      ],
+      "js": [ "sniff_common.js" ],
+      "matches": [ "<all_urls>" ],
       "run_at": "document_end"
     }
   ]
